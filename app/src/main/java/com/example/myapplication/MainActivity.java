@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         });
         Button secondactivitybtn = (Button) findViewById(R.id.secondactivitybtn);
         Button thirdactivitybtn = (Button) findViewById(R.id.thirdactivitybtn);
-        Button googlebtn = (Button) findViewById(R.id.googlebtn);
+        final Button googlebtn = (Button) findViewById(R.id.googlebtn);
         googlebtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
         secondactivitybtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, Main2Activity.class));
+//                startActivity(new Intent(MainActivity.this, Main2Activity.class));
+                if(googlebtn.getVisibility() == View.VISIBLE ){
+                    googlebtn.setVisibility(View.GONE);
+                } else{
+                    googlebtn.setVisibility(View.VISIBLE);
+                }
             }
         });
         thirdactivitybtn.setOnClickListener(new OnClickListener() {
